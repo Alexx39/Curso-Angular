@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body ng-app>
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+
+	<div ng-init="
+	personas=[
+			{nombre:'Mike' , pais:'Colombia'},
+			{nombre:'Alex' , pais:'Ee uu'},
+			{nombre:'Jeisson' , pais:'Argentina'}]">ng-repeat</div>
+
+			<span ng-repeat="persona in personas">
+				{{persona.nombre + " es de " + persona.pais}}
+				<br></br>
+			</span>
+
+
+
+
+
+</body>
+</html>
