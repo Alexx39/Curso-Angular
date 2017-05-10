@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body ng-app="miModulo">
+
+	<div ng-controller="padreController as padre">
+		{{padre.nombre}}
+
+		<div ng-controller="hijoController as hijo">
+			
+			{{hijo.nombre + ', ' + padre.nombre}}
+		</div>
+
+
+	</div>
+
+	<script src="js/angular.js"></script>
+	<script src="app.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body ng-app="miModulo">
+
+	<div ng-controller="miControl">
+	
+		<mi-directiva 
+		libro-autor="{{libro.autor}}"
+		libro-titu="{{libro.titulo}}"
+		ll="{{libro}}"
+		nn="enMayucuslas(libro)">
+			
+
+		</mi-directiva>
+
+	</div>
+
+
+	<script src="js/angular.js"></script>
+	<script src="app.js"></script>
+</body>
+</html>
