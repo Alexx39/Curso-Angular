@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Servicios</title>
+</head>
+<body ng-controller="MainController">
+
+
+
+    <script src="app.js"></script>
+    <script src="messages.js"></script>  
+
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="http://code.jquery.com/jquery-1.12.0.min.js"></script>
+
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous">
+
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+
+
+
+    <div class="container">
+        <form name="myform">
+            <div class="form-group">
+                <label>Nombre(*)</label>
+                <input class="form-control" type="text" name="name" ng-model="nuevoContacto.nombre" required />
+            </div>
+            <div class="form-group">
+                <label>Correo Electronico</label>
+                <input class="form-control" type="email" name="email" ng-model="nuevoContacto.correo" />
+            </div>
+            <div class="form-group">
+                <label>Telefono</label>
+                <input class="form-control" type="number" name="telefono" ng-model="nuevoContacto.telefono" />
+            </div></br>
+            <div>
+                <label>Seleccione por quien desea votar(*)</label></br>
+                <img src="https://graph.facebook.com/15441/picture?" ng-click="nuevoContacto.voto = 'Lina'" 
+                ng-dblclick="inf()" >
+                <img src="https://graph.facebook.com/16956/picture?" ng-click="nuevoContacto.voto = 'Sofia'">
+                <img src="https://graph.facebook.com/14718/picture?" ng-click="nuevoContacto.voto = 'Mike'">
+            
+            </div>
+
+            <div>
+                <span ng-if="nuevoContacto.voto != null"> Usted eligio a  (<label>{{nuevoContacto.voto | uppercase}}</label>)</span>
+            </div></br>
+
+            <input type="hidden" ng-model="nuevoContacto.id" />
+            <div ng-messages="myform.nuevoContacto.correo.$error">
+            	<p ng-message="email"><!----></p>
+            </div>
+            <button type="submit" ng-disabled="xx(nuevoContacto)"  ng-click="guardarContacto(nuevoContacto)" class="btn btn-default">Guardar</button>
+        </form>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Nombre</th>
+                    <th>Correo Electronico</th>
+                    <th>Telefono</th>
+                    <th>Voto</th>
+                    <th>Opciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="contacto in contactos">
+                    <td>{{ contacto.nombre }}</td>
+                    <td>{{ contacto.correo }}</td>
+                    <td>{{ contacto.telefono }}</td>
+                    <td>{{ contacto.voto}}</td>
+                    <td>
+                        <a href="#" ng-click="editar(contacto.id)">editar</a> |
+                        <a href="#" ng-click="borrar(contacto.id)">borrar</a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+   
+
+</body>
+
+</html>
